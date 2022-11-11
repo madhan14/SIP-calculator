@@ -402,19 +402,24 @@
                             <div class="col">
                                 <form>
                                     <div class="mb-3">
-                                        <label for="example-input-normal" class="form-label">Normal</label>
-                                        <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+                                        <label for="example-input-normal" class="form-label">Amount you have to invest</label>
+                                        <input type="text" id="amount" name="example-input-normal" class="form-control">
+                                        <div class="invalid-feedback amount">Please enter the amount.</div>
                                     </div>
                                     
                                     <div class="mb-3">
-                                        <label for="example-input-normal" class="form-label">Normal</label>
-                                        <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+                                        <label for="example-input-normal" class="form-label">Total invesment months</label>
+                                        <input type="text" id="time_period" name="example-input-normal" class="form-control" placeholder="in months">
+                                        <div class="invalid-feedback time_period">Please enter the time period.</div>
                                     </div>
                                     
                                     <div class="mb-3">
-                                        <label for="example-input-normal" class="form-label">Normal</label>
-                                        <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+                                        <label for="example-input-normal" class="form-label">Expected returns</label>
+                                        <input type="text" id="returns" name="example-input-normal" class="form-control" >
+                                        <div class="invalid-feedback returns">Please enter the expected returns.</div>
                                     </div>
+
+                                    <input type="button" id="submit" class="btn btn-primary" value="Submit" />
                                 </form>
                             </div>
                             <div class="col"></div>
@@ -445,6 +450,7 @@
         <!-- third party js -->
         <script src="assets/js/vendor/apexcharts.min.js"></script>
         <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="assets/js/custom.js"></script>
         <!-- <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script> -->
         <!-- third party js ends -->
 
