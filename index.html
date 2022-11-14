@@ -18,6 +18,16 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
 
+        <style>
+            .error{
+                display: none;
+                width: 100%;
+                margin-top: 0.25rem;
+                font-size: .75rem;
+                color: #fa5c7c;
+            }
+        </style>
+
     </head>
 
     <body class="loading hide-menu" data-layout="full" data-layout-color="light" data-leftbar-theme="dark" data-layout-mode="fluid" data-rightbar-onstart="true">
@@ -403,20 +413,20 @@
                                 <form>
                                     <div class="mb-3">
                                         <label for="example-input-normal" class="form-label">Amount you have to invest</label>
-                                        <input type="text" id="amount" name="example-input-normal" class="form-control">
-                                        <div class="invalid-feedback amount">Please enter the amount.</div>
+                                        <input type="number" id="amount" onkeyup="amount_validate()" name="example-input-normal" class="form-control">
+                                        <div class="error amount">Please enter the amount.</div>
                                     </div>
                                     
                                     <div class="mb-3">
                                         <label for="example-input-normal" class="form-label">Total invesment months</label>
-                                        <input type="text" id="time_period" name="example-input-normal" class="form-control" placeholder="in months">
-                                        <div class="invalid-feedback time_period">Please enter the time period.</div>
+                                        <input type="number" id="time_period" onkeyup="time_period_validate()" name="example-input-normal" class="form-control" placeholder="in months">
+                                        <div class="error time_period">Please enter the time period.</div>
                                     </div>
                                     
                                     <div class="mb-3">
                                         <label for="example-input-normal" class="form-label">Expected returns</label>
-                                        <input type="text" id="returns" name="example-input-normal" class="form-control" >
-                                        <div class="invalid-feedback returns">Please enter the expected returns.</div>
+                                        <input type="number" id="returns" onkeyup="returns_validate()" name="example-input-normal" class="form-control" >
+                                        <div class="error returns">Please enter the expected returns.</div>
                                     </div>
 
                                     <input type="button" id="submit" class="btn btn-primary" value="Submit" />
