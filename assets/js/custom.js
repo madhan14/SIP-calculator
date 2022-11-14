@@ -59,15 +59,47 @@ function returns_validate(){
     }
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
 
 $('#submit').click(function() {
     if(validate() == 'pass'){
-        var amount = $('#amount').val();
-        var time_period = $('#time_period').val();
-        var returns = $('#returns').val();
+        var P = $('#amount').val();
+        var n = $('#time_period').val();
+        var r = $('#returns').val();
 
-        console.log('Invest amount: '+amount);
-        console.log('Invest time_period: '+time_period);
-        console.log('returns: '+returns);
+        // console.log('Invest amount monthly: '+P);
+        // console.log('Invest time_period: '+n);
+        // console.log('returns: '+r);
+
+        /*
+        FV = P [ ((1+i)^n)-1 ] * (1+i)/i
+        FV = Future value or the amount you get at maturity.
+        P = Amount you invest through SIP
+        i = Compounded rate of return
+        n = Investment duration in months
+        r = Expected rate of return
+        */
+
+        var i = (r/100)/12;
+        var FV = P * [(Math.pow((1+i), n)-1)/i] * (1+i);
+
+        var total_amount = Math.round(FV);
+        var total_invested_amount = Math.round(P*n);
+        var estimated_returns = Math.round(FV - P*n);
+
+        $('.tv').text('₹' + numberWithCommas(total_amount));
+        $('.tav').text('₹' + numberWithCommas(total_invested_amount));
+        $('.es').text('₹' + numberWithCommas(estimated_returns));
+
+        // console.log('---------------------------------------------')
+        // console.log('Total amount invested: '+ P*n)
+        // console.log(FV);
+        // console.log('---------------------------------------------')
+
+
+
+        
     }
 });
